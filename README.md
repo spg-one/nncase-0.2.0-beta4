@@ -1,3 +1,6 @@
+# 这只是SPG用来学习nncase的repo
+
+
 <div align="center">
 <img src="docs/logo.png" width="400" alt="nncase" />
 </div>
