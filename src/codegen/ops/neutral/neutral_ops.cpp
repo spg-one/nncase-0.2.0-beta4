@@ -203,6 +203,8 @@ namespace codegen
             return body;
         });
 
+        //这里注册的就是nncase生成的中间表示图中matmul节点对应的emitter函数，也就是说会通过这个emitter将matmul节点生成kmodel中的部分二进制数据\
+          这里就对上了iris.kmodel中0x1d4-0x23c的数据
         register_emitter(op_matmul, [](node &node, codegen_context &context) {
             auto &rnode = static_cast<matmul &>(node);
             auto body = std::make_unique<node_body_impl<rop_matmul, matmul_options>>();

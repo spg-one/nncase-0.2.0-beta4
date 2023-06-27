@@ -418,7 +418,9 @@ void compile(const compile_options &options)
 {
     auto target = create_target(options);
 
-    target->registry_codegen_ops(); //target为k210需要注册kpu和cpu两类算子的emitter，但如果是cpu的话就只需要注册cpu算子的emitter
+    //codegen operation指的是把中间表示graph的节点转换成二进制数据的操作，每一种节点对应一种操作，节点用opcode标识，操作单词为emitter\
+      target为k210需要注册kpu和cpu两类emitter，但如果是cpu的话就只需要注册cpu一类emitter
+    target->registry_codegen_ops(); 
     target->registry_evaluator_ops();
 
     // 1. Import

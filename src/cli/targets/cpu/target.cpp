@@ -62,7 +62,7 @@ void nncase::cpu_target::registry_codegen_ops()
 {
     using namespace nncase::codegen;
 
-    register_netural_emitters();//注册cpu算子emitter
+    register_netural_emitters();//注册cpu的emitter
 }
 
 void nncase::cpu_target::registry_evaluator_ops()
