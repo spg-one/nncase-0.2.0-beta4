@@ -418,7 +418,7 @@ void compile(const compile_options &options)
 {
     auto target = create_target(options);
 
-    target->registry_codegen_ops();
+    target->registry_codegen_ops(); //target为k210需要注册kpu和cpu两类算子的emitter，但如果是cpu的话就只需要注册cpu算子的emitter
     target->registry_evaluator_ops();
 
     // 1. Import

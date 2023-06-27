@@ -1,0 +1,16 @@
+
+```
+那你能不能帮我分析一下，我上面提到的register_emitter，它注册的这些对应一个个opcode的emiiter，在什么情况下会被触发，换句话说，这些opcode对应了什么？我一开始的理解是，这opcode对应了比如tensorflow lite中的每一种算子，但是我发现并不是，他有比如op_binary、op_quantize这些opcode，并不是tflite的算子，所以我又猜想，这些opcode是不是对应着nncase编译过程中的graph中间表示一个个节点？你可以帮我阅读一下nncase的源码并告诉解答吗
+```
+
+```
+是的，你的理解是正确的。这些opcode是对应于NNCase中间表示图（IR）中的节点类型。每个节点类型都有一个唯一的opcode，用于标识该节点类型。
+
+在NNCase中，每个节点都是一个操作，例如卷积、全连接等。这些操作被编码为中间表示图中的节点。每个节点都具有一个与之关联的opcode，用于标识该节点的类型。当NNCase编译器遍历中间表示图时，它将使用这些opcode来确定要生成的代码。
+
+因此，register_emitter函数注册的是与每个opcode对应的emitter，当编译器遇到特定的opcode时，它将调用相应的emitter来生成代码。例如，op_binary对应于两个输入之间执行二进制运算的节点，而op_quantize对应于量化节点。这些节点类型和其对应的opcode可以在NNCase源代码中的include/nncase/ir/op.h文件中找到。
+
+总之，register_emitter函数注册了与NNCase中间表示图中每个节点类型对应的emitter，并通过opcode将它们与节点类型关联起来。当编译器遍历中间表示图时，它将使用这些emitter来生成代码。
+```
+
+---

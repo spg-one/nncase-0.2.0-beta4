@@ -63,8 +63,8 @@ void nncase::k210_target::registry_codegen_ops()
 {
     using namespace nncase::codegen;
 
-    cpu_target::registry_codegen_ops();
-    register_k210_emitters();
+    cpu_target::registry_codegen_ops(); //注册cpu算子emitter
+    register_k210_emitters(); //注册kpu算子emitter
 }
 
 void nncase::k210_target::registry_evaluator_ops()
