@@ -419,8 +419,10 @@ void compile(const compile_options &options)
     auto target = create_target(options);
 
     //codegen operation指的是把中间表示graph的节点转换成二进制数据的操作，每一种节点对应一种操作，节点用opcode标识，操作单词为emitter\
+      意思就是将中间表示graph数据变成二进制编码后“发射”到目标处理器上，也就是所谓的code generation\
       target为k210需要注册kpu和cpu两类emitter，但如果是cpu的话就只需要注册cpu一类emitter
     target->registry_codegen_ops(); 
+    
     target->registry_evaluator_ops();
 
     // 1. Import

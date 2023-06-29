@@ -1,5 +1,5 @@
-find_package(Flatbuffers REQUIRED)
-set(FLATBUFFERS_FLATC_EXECUTABLE "${CONAN_FLATBUFFERS_ROOT}/bin/flatc")
+# find_package(Flatbuffers REQUIRED)
+set(FLATBUFFERS_FLATC_EXECUTABLE "C:/Users/spggo/.conan/data/flatbuffers/1.11.0/_/_/package/f26537b056c9ff213dcc2874372b233408a3e04e/bin/bin/flatc")
 
 function(FLATBUFFERS_GENERATE_C_HEADERS Name)
   set(FLATC_OUTPUTS)

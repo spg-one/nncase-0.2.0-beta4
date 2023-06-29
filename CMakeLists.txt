@@ -10,7 +10,7 @@ else()
 endif()
 
 conan_check()
-conan_add_remote(NAME bincrafts URL https://api.bintray.com/conan/bincrafters/public-conan)
+# conan_add_remote(NAME bincrafts URL https://api.bintray.com/conan/bincrafters/public-conan)
 if (APPLE)
     conan_add_remote(NAME sunnycase URL https://conan.sunnycase.moe)
 else()
