@@ -124,7 +124,7 @@ graph import(const compile_options &options)
     auto model = read_file(options.input_filename);
 
     if (options.input_format == "tflite")
-        return import_tflite(model);
+        return import_tflite(model); //tflite应该用的是flatbuffer，下面三个是protobuf
     else if (options.input_format == "paddle")
         return import_paddle(model, boost::filesystem::path(options.input_filename).parent_path());
     else if (options.input_format == "caffe")
